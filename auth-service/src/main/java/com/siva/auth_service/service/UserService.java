@@ -26,7 +26,7 @@ public class UserService {
     }
     public String getPassword(String username){
         User user=findByUsername(username);
-        return (user!=null ?user.getpassword():null);
+        return (user!=null ?user.getPassword():null);
     }
 
 }

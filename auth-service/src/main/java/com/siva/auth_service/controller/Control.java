@@ -33,15 +33,15 @@ public class Control {
         }
 
         if(userService.usernameExists(username)) {
-            ResponseEntity
+            return ResponseEntity
             .status(HttpStatus.CONFLICT)
             .body(Map.of("message","Username already exists"));
         }
 
         User newUser=new User();
-        newUser.setusername(username);
-        newUser.setpassword(password);
-        newUser.setsecurekey(UUID.randomUUID().toString());
+        newUser.setUsername(username);
+        newUser.setPassword(password);
+        newUser.setSecurekey(UUID.randomUUID().toString());
         userService.savUser(newUser);
         return ResponseEntity.ok(Map.of("message", "done"));
 
@@ -53,7 +53,7 @@ public class Control {
         if(username==null || password==null){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("message","Invalid username or password"));
         }
-        if(!userService.usernameExists(username) && userService.getPassword(username).equals(password)){
+        if(!userService.usernameExists(username) &&  password.equals(userService.getPassword(username)) ){
             return ResponseEntity.ok(Map.of("message","login success"));
         }
 

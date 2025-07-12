@@ -12,25 +12,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    public String username;
-    public String password;
-    public String securekey;
-    public void setusername(String username){
+    private String username;
+    private String password;
+    private String securekey;
+    public void setUsername(String username){
         this.username=username;
     }
-    public void setpassword(String password){
+    public void setPassword(String password){
         this.password=password;
     }
-    public void setsecurekey(String securekey){
+    public void setSecurekey(String securekey){
         this.securekey=securekey;
     }
-    public String getusername(){
+    public String getUsername(){
         return this.username;
     }
-    public String getpassword(){
+    public String getPassword(){
         return this.password;
     }
-    public String getsecurekey(){
+    public String getSecurekey(){
         return this.securekey;
     }
 }
